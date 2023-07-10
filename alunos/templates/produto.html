@@ -1,0 +1,42 @@
+{% load bootstrap4 %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Produto</title>
+  {% bootstrap_css %}
+  <style>
+    /* Estilos personalizados */
+    body {
+      padding-top: 50px;
+    }
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="#">Produto</a>
+    </div>
+  </nav>
+  
+  <div class="container mt-5">
+    <h1>Cadastrar Produto</h1>
+    {% bootstrap_messages %}
+
+    <form action="{% url 'produto' %}" method="post" class="form" autocomplete="off" enctype="multipart/form-data">
+      {% csrf_token %}
+      {% bootstrap_form form %}
+      <div class="text-center mt-4">
+        <button type="submit" class="btn btn-primary">Cadastrar Produto</button>
+      </div>
+    </form>
+  </div>
+  
+  {% bootstrap_javascript %}
+</body>
+</html>
